@@ -18,15 +18,27 @@
   <body>
     <h1>Location</h1>
     <input type="text" id="search" placeholder="Enter Location" />
-    <button type="button" class="btn">Search</button>
-    <p></p>
+    <button type="button" class="btn" onclick="search()">Search</button>
+    <p id="result"></p>
     <script>
-      const location = document.getElementById("search");
       const loc = {
-        Pune: "Mispav",
-        Mumbai: "Pavwada",
+        Pune: "Misalpav",
+        Mumbai: "Vadapav",
         Nashik: "Sambhar",
+        Sambhajinagar: "Meduvada",
       };
+      function search() {
+        const search = document.getElementById("search");
+        const searchvalue = search.value;
+
+        const keyvalue = loc[searchvalue];
+        const result = document.getElementById("result");
+        if (keyvalue) {
+          result.innerText = `${searchvalue} speacial dish is: ${keyvalue}`;
+        } else {
+          result.innerText = `Not found`;
+        }
+      }
     </script>
   </body>
 </html>
