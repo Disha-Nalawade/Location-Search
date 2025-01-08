@@ -19,8 +19,14 @@
     <h1>Location</h1>
     <input type="text" id="search" placeholder="Enter Location" />
     <button type="button" class="btn" onclick="search()">Search</button>
+    <button type="button" class="btn" onclick="otptime()">Otp</button>
+
     <p id="result"></p>
+    <br />
+    <p id="time1"></p>
     <script>
+      const t = document.getElementById("time1");
+      let second = 6;
       const loc = {
         Pune: "Misalpav",
         Mumbai: "Vadapav",
@@ -31,13 +37,27 @@
         const search = document.getElementById("search");
         const searchvalue = search.value;
 
-        const keyvalue = loc[searchvalue];
+        const dish = loc[searchvalue];
         const result = document.getElementById("result");
-        if (keyvalue) {
-          result.innerText = `${searchvalue} speacial dish is: ${keyvalue}`;
+        if (dish) {
+          result.innerText = `${searchvalue} speacial dish is: ${dish}`;
         } else {
-          result.innerText = `Not found`;
+          result.innerText = `Not Available`;
         }
+      }
+      function Thanks() {
+        alert("Welcome");
+      }
+      setTimeout(Thanks, 3000);
+
+      function time() {
+        if (second >= 0) {
+          t.innerText = second;
+          second--;
+        }
+      }
+      function otptime() {
+        setInterval(time, 1000);
       }
     </script>
   </body>
